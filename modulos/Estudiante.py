@@ -1,20 +1,3 @@
-# Ejercicio 1: Gestión de Estudiantes y Notas
-
-# Objetivo: Crear una clase Estudiante con atributos y métodos que permitan gestionar notas usando listas y diccionarios.
-
-# 1.Crea una clase Estudiante con los atributos:
-#   - nombre (str)
-#   - edad (int)
-#   - notas (un diccionario donde las claves sean nombres de asignaturas y los valores sean las notas).
-
-# 2. Agrega métodos a la clase para:
-#   - agregar_nota(asignatura, nota): agrega o actualiza la nota de una asignatura.
-#   - calcular_promedio(): calcula y devuelve el promedio de las notas.
-
-# 3. Crea una lista de estudiantes y agrega varias instancias de la clase Estudiante. Llena sus notas y calcula el promedio de cada uno.
-
-# 4. Finalmente, crea una función que reciba la lista de estudiantes y devuelva un diccionario con el nombre de cada estudiante como clave y su promedio como valor.
-
 class Estudiante:
     def __init__(self, nombre, edad):
         self.nombre = nombre
