@@ -10,11 +10,16 @@ while True:
 
     match opcion:
         case '0':
-            menu.add_student()
+            nombre = input("Introduce tu nombre: ")
+            edad = int(input("Introduce tu edad: "))
+            estudiante = Estudiante(nombre, edad)
         
         case '1':
-            pass
-        
+            asignatura = input("Introduce una asignatura: ")
+            nota = int(input("Introduce una nota: "))
+
+            estudiante.agregar_nota(asignatura, nota)
+
         case '2':
             pass
         
@@ -27,8 +32,11 @@ while True:
         case '5':
             pass
 
+        case _:
+            print("Opción no encontrada, vuelve a intentarlo")
 
 
+"""
 # Agrego notas y asignaturas a la lista
 estudiante1.agregar_nota("Programación", 8)
 estudiante1.agregar_nota("Bases de datos", 6)
@@ -46,3 +54,4 @@ estudiante1.mostrar_notas()
 # Actualizo una nota
 estudiante1.actualizar_nota("Bases de datos", 10)
 estudiante1.mostrar_notas()
+"""
