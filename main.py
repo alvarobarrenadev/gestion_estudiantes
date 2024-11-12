@@ -17,20 +17,21 @@ while True:
         case '1':
             asignatura = input("Introduce una asignatura: ")
             nota = int(input("Introduce una nota: "))
-
             estudiante.agregar_nota(asignatura, nota)
 
         case '2':
-            pass
+            estudiante.mostrar_notas()
         
         case '3':
-            pass
+            promedio = estudiante.calcular_promedio()
+            print(f"El promedio de notas es: {promedio}")
         
         case '4':
-            pass
+            estudiante.mostrar_datos()
         
         case '5':
-            pass
+            print("Saliendo del programa...")
+            break
 
         case _:
             print("Opción no encontrada, vuelve a intentarlo")
