@@ -1,58 +1,55 @@
-from modulos import Estudiante
-from modulos import menu
+from modulos.Estudiante import Estudiante
+from modulos import funciones
 
-menu.ver_menu()
-# Instancio la clase estudiante
-# estudiante1 = Estudiante("Juan", 18)
+funciones.limpiar_consola() # Limpio la consola
+funciones.ver_menu() # Muestro el menú
 
 while True:
-    opcion = input("Introduce una opción: ")
+    opcion = input("Introduce una opción (0-6): ")
 
     match opcion:
         case '0':
-            nombre = input("Introduce tu nombre: ")
+            nombre = input("Introduce tu nombre: ").lower()
             edad = int(input("Introduce tu edad: "))
+            print("\n-----------------------------")
+            print("¡Estudiante creado con éxito!")
+            print("-----------------------------\n")
             estudiante = Estudiante(nombre, edad)
+            funciones.ver_menu()
         
         case '1':
             asignatura = input("Introduce una asignatura: ")
-            nota = int(input("Introduce una nota: "))
+            nota = float(input("Introduce una nota: "))
             estudiante.agregar_nota(asignatura, nota)
+            funciones.ver_menu()
 
         case '2':
-            estudiante.mostrar_notas()
-        
-        case '3':
             promedio = estudiante.calcular_promedio()
-            print(f"El promedio de notas es: {promedio}")
+            print("\n-----------------------------")
+            print(f"El promedio de notas es de: {promedio:.0f}")
+            print("-----------------------------\n")
+            funciones.ver_menu()
+
+        case '3':
+            estudiante.mostrar_notas()
+            funciones.ver_menu()
+        
         
         case '4':
-            estudiante.mostrar_datos()
+            asignatura = input("Introduce una asignatura: ")
+            nota = float(input("Introduce una nota: "))
+            estudiante.actualizar_nota(asignatura, nota)
+            funciones.ver_menu()
         
         case '5':
+            asignatura = input("Introduce una asignatura: ")
+            estudiante.eliminar_asignatura(asignatura)
+            funciones.ver_menu()
+        
+        case '6':
             print("Saliendo del programa...")
             break
 
         case _:
-            print("Opción no encontrada, vuelve a intentarlo")
-
-
-"""
-# Agrego notas y asignaturas a la lista
-estudiante1.agregar_nota("Programación", 8)
-estudiante1.agregar_nota("Bases de datos", 6)
-estudiante1.agregar_nota("Desarrollo cliente", 9)
-
-# Muestro las notas y el promedio
-estudiante1.mostrar_notas()
-promedio = estudiante1.calcular_promedio()
-print(f"\nPromedio: {promedio:.2f}")
-
-# Elimino una nota
-estudiante1.eliminar_nota("Programación")
-estudiante1.mostrar_notas()
-
-# Actualizo una nota
-estudiante1.actualizar_nota("Bases de datos", 10)
-estudiante1.mostrar_notas()
-"""
+            print("Opción no encontrada, vuelve a intentarlo.\n")
+            funciones.ver_menu()

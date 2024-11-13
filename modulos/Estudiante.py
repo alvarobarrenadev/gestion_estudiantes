@@ -2,7 +2,7 @@ class Estudiante:
     def __init__(self, nombre, edad):
         self.nombre = nombre
         self.edad = edad
-        self.notas = {}
+        self.notas = {} # Diccionario para almacenar las notas
     
     def agregar_nota(self, asignatura, nota):
         # Verificar que la asignatura no esté vacía
@@ -11,7 +11,7 @@ class Estudiante:
             return # Detener la ejecución si hay error
         
         # Verificar que la nota sea un número
-        if not isinstance(nota, int):
+        if not isinstance(nota, float) and not isinstance(nota, int):
             print("Error: La nota debe ser un número.")
             return # Detener la ejecución si hay error
         
@@ -21,8 +21,10 @@ class Estudiante:
             return # Detener la ejecución si hay error
         
         # key: asignatura - value nota
-        self.notas[asignatura] = nota 
-        print("Nota agregada correctamente")
+        self.notas[asignatura] = nota
+        print("\n-------------------------")
+        print("¡Nota agregada con éxito!")
+        print("-------------------------\n")
 
     def calcular_promedio(self):
         if len(self.notas) == 0:
@@ -31,23 +33,28 @@ class Estudiante:
             return sum(self.notas.values()) / len(self.notas)
         
     def mostrar_notas(self):
-        print(f"\nLas notas del estudiante {self.nombre} son: ")
-        for indice, (k, v) in enumerate(self.notas.items()):
-            print(f"{indice+1}. Asignatura: {k} - Nota: {v}")
+        if len(self.notas) == 0:
+            print(f"\n{self.nombre.title()} no tiene notas registradas.\n")
+            return
+        else:
+            print(f"\nLas notas de {self.nombre.title()} son: ")
+            for indice, (asignatura, nota) in enumerate(self.notas.items()):
+                print(f"{indice+1}. {asignatura.title()}: {nota}")
+            print()
 
 
     def actualizar_nota(self, asignatura, nota):
         if asignatura in self.notas:
             self.notas[asignatura] = nota
-            print(f"Nota de la asignatura '{asignatura}' actualizada correctamente.")
+            print(f"\nLa nota de la asignatura '{asignatura.title()}' ha sido actualizada correctamente.\n")
         else:
-            print(f"Error: La asignatura '{asignatura}' no existe.")
+            print(f"\nError: La asignatura '{asignatura.title()}' no existe.\n")
             return # Detener la ejecución si hay error
 
-    def eliminar_nota(self, asignatura):
+    def eliminar_asignatura(self, asignatura):
         if asignatura in self.notas:
             self.notas.pop(asignatura)
-            print(f"Nota de la asignatura '{asignatura}' eliminada correctamente.")
+            print(f"\nLa asignatura '{asignatura.title()}' ha sido eliminada correctamente.\n")
         else:
-            print(f"Error: La asignatura '{asignatura}' no existe.")
+            print(f"\Error: La asignatura '{asignatura.title()}' no existe.\n")
             return # Detener la ejecución si hay error

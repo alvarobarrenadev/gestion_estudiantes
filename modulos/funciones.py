@@ -7,3 +7,10 @@ def ver_menu():
     print('4. ACTUALIZAR NOTA')
     print('5. ELIMINAR NOTA')
     print('6. SALIR')
+
+def limpiar_consola():
+    import os
+    if os.name == "nt": # Windows
+        os.system("cls")
+    else: # MacOS y Linux
+        os.system("clear")
