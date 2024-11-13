@@ -21,39 +21,40 @@ class Estudiante:
             return # Detener la ejecución si hay error
         
         # key: asignatura - value nota
-        self.notas[asignatura] = nota
+        self.notas[asignatura] = nota # Agregar la nota al diccionario
         print("\n-------------------------")
         print("¡Nota agregada con éxito!")
         print("-------------------------\n")
 
     def calcular_promedio(self):
-        if len(self.notas) == 0:
+        if len(self.notas) == 0: # Si no hay notas, retornar 0
             return 0
         else:
             return sum(self.notas.values()) / len(self.notas)
         
     def mostrar_notas(self):
-        if len(self.notas) == 0:
+        if len(self.notas) == 0: # Si no hay notas, mostrar mensaje
             print(f"\n{self.nombre.title()} no tiene notas registradas.\n")
-            return
+            return # Detener la ejecución si no hay notas
         else:
             print(f"\nLas notas de {self.nombre.title()} son: ")
+            # Recorrer el diccionario de notas y mostrarlas
             for indice, (asignatura, nota) in enumerate(self.notas.items()):
                 print(f"{indice+1}. {asignatura.title()}: {nota}")
-            print()
+            print() # Salto de línea
 
 
     def actualizar_nota(self, asignatura, nota):
-        if asignatura in self.notas:
-            self.notas[asignatura] = nota
+        if asignatura in self.notas: # Verificar si la asignatura existe
+            self.notas[asignatura] = nota # Actualizar la nota
             print(f"\nLa nota de la asignatura '{asignatura.title()}' ha sido actualizada correctamente.\n")
         else:
             print(f"\nError: La asignatura '{asignatura.title()}' no existe.\n")
             return # Detener la ejecución si hay error
 
     def eliminar_asignatura(self, asignatura):
-        if asignatura in self.notas:
-            self.notas.pop(asignatura)
+        if asignatura in self.notas: # Verificar si la asignatura existe
+            self.notas.pop(asignatura) # Eliminar la asignatura
             print(f"\nLa asignatura '{asignatura.title()}' ha sido eliminada correctamente.\n")
         else:
             print(f"\Error: La asignatura '{asignatura.title()}' no existe.\n")
