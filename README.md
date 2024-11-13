@@ -27,7 +27,7 @@ Este proyecto permite gestionar las notas de los estudiantes, incluyendo la adic
 
 1. Ejecuta el script principal:
     ```sh
-    python main.py
+    python3 main.py
     ```
 
 2. Sigue las opciones del menú para gestionar las notas de los estudiantes.
