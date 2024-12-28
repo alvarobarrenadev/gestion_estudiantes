@@ -19,7 +19,7 @@ Este proyecto permite gestionar las notas de los estudiantes, incluyendo la adic
 
 1. Clona el repositorio:
     ```sh
-    git clone https://github.com/alvarobarrena02/gestion_estudiantes.git
+    git clone https://github.com/alvarobarrenadev/gestion_estudiantes.git
     cd gestion_estudiantes
     ```
 
